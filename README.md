@@ -71,11 +71,22 @@ The app will start running on `http://127.0.0.1:5000/`.
 
 ```
 OCRDemo/
-│── static/                 # Static files (CSS, JS, images)
+│── doc/                    # Documentation files
+│   │── AUTHORS             # Contributor details
+│   │── LICENSE             # License file
+│   │── README.md           # Project documentation
+│── plugins/                # Additional processing plugins
+│   │── excel_plugin.py     # Excel processing plugin
+│── results/                # Stores extracted text results
 │── templates/              # HTML templates
-│── app.py                  # Main Flask application
-│── requirements.txt         # Dependencies
-│── README.md                # Project documentation
+│   │── index.html          # Main web interface
+│── config.py               # Configuration settings
+│── document_processor.py   # Main document processing logic
+│── mongodb_helper.py       # MongoDB interaction module
+│── output.json             # Sample output storage
+│── plugin_framework.py     # Framework for additional plugins
+│── setup_database.py       # Database setup script
+│── web_interface.py        # Web interface logic
 ```
 
 ---
