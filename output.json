@@ -1,0 +1,502 @@
+{
+  "file_name": "TSP.pdf",
+  "file_size": "154642",
+  "file_type": ".pdf",
+  "processed_date": "2025-03-18T23:44:30.447878",
+  "content": [
+    {
+      "text": "Name -Yash A Gunjal  ",
+      "page": "1",
+      "line_num": "3",
+      "type": "text"
+    },
+    {
+      "text": "Div-A ",
+      "page": "1",
+      "line_num": "4",
+      "type": "text"
+    },
+    {
+      "text": "PRN -202201 040106  ",
+      "page": "1",
+      "line_num": "5",
+      "type": "text"
+    },
+    {
+      "text": "Roll No -39 ",
+      "page": "1",
+      "line_num": "6",
+      "type": "text"
+    },
+    {
+      "text": "#include  <bits/stdc++.h > ",
+      "page": "2",
+      "line_num": "3",
+      "type": "text"
+    },
+    {
+      "text": "using namespace  std; ",
+      "page": "2",
+      "line_num": "4",
+      "type": "text"
+    },
+    {
+      "text": "#define INF 1e9 ",
+      "page": "2",
+      "line_num": "6",
+      "type": "text"
+    },
+    {
+      "text": "int N; ",
+      "page": "2",
+      "line_num": "7",
+      "type": "text"
+    },
+    {
+      "text": "vector<vector<int>> dist; ",
+      "page": "2",
+      "line_num": "8",
+      "type": "text"
+    },
+    {
+      "text": "vector<vector<int>> dp; ",
+      "page": "2",
+      "line_num": "9",
+      "type": "text"
+    },
+    {
+      "text": "// Function to count the number of set bits (visited cities)  ",
+      "page": "2",
+      "line_num": "11",
+      "type": "text"
+    },
+    {
+      "text": "int countSetBits (int n) { ",
+      "page": "2",
+      "line_num": "12",
+      "type": "text"
+    },
+    {
+      "text": "    return __builtin_popcount (n); // Built -in function for counting bits in GCC/Clang  ",
+      "page": "2",
+      "line_num": "13",
+      "type": "text"
+    },
+    {
+      "text": "} ",
+      "page": "2",
+      "line_num": "14",
+      "type": "text"
+    },
+    {
+      "text": "// Function to solve TSP  ",
+      "page": "2",
+      "line_num": "16",
+      "type": "text"
+    },
+    {
+      "text": "int tsp(int mask, int pos) { ",
+      "page": "2",
+      "line_num": "17",
+      "type": "text"
+    },
+    {
+      "text": "    int s = countSetBits (mask); // Number of visited cities  ",
+      "page": "2",
+      "line_num": "18",
+      "type": "text"
+    },
+    {
+      "text": "    if (mask == (1 << N) - 1) ",
+      "page": "2",
+      "line_num": "20",
+      "type": "text"
+    },
+    {
+      "text": "        return dist[pos][0]; ",
+      "page": "2",
+      "line_num": "21",
+      "type": "text"
+    },
+    {
+      "text": "    if (dp[mask][pos] != -1) ",
+      "page": "2",
+      "line_num": "23",
+      "type": "text"
+    },
+    {
+      "text": "        return dp[mask][pos]; ",
+      "page": "2",
+      "line_num": "24",
+      "type": "text"
+    },
+    {
+      "text": "    int ans = INF; ",
+      "page": "2",
+      "line_num": "26",
+      "type": "text"
+    },
+    {
+      "text": "    for (int city = 0; city < N; city++) { ",
+      "page": "2",
+      "line_num": "27",
+      "type": "text"
+    },
+    {
+      "text": "        if ((mask & (1 << city)) == 0) { ",
+      "page": "2",
+      "line_num": "28",
+      "type": "text"
+    },
+    {
+      "text": "            int newAns = dist[pos][city] + tsp(mask | (1 << city), city); ",
+      "page": "2",
+      "line_num": "29",
+      "type": "text"
+    },
+    {
+      "text": "            ans = min(ans, newAns); ",
+      "page": "2",
+      "line_num": "30",
+      "type": "text"
+    },
+    {
+      "text": "            cout << \"Cost(\" << pos + 1 << \", {\"; ",
+      "page": "2",
+      "line_num": "32",
+      "type": "text"
+    },
+    {
+      "text": "            for (int i = 0; i < N; i++) { ",
+      "page": "2",
+      "line_num": "33",
+      "type": "text"
+    },
+    {
+      "text": "                if (mask & (1 << i)) cout << i + 1 << \" \"; ",
+      "page": "2",
+      "line_num": "34",
+      "type": "text"
+    },
+    {
+      "text": "            } ",
+      "page": "2",
+      "line_num": "35",
+      "type": "text"
+    },
+    {
+      "text": "            cout << city + 1 << \"}, 1) = \" << newAns << endl; ",
+      "page": "2",
+      "line_num": "36",
+      "type": "text"
+    },
+    {
+      "text": "            if (s == 2 || s == 3) { ",
+      "page": "2",
+      "line_num": "38",
+      "type": "text"
+    },
+    {
+      "text": "                cout << \"Min cost for subset of size \" << s << \": \" << ans << endl; ",
+      "page": "2",
+      "line_num": "39",
+      "type": "text"
+    },
+    {
+      "text": "            } ",
+      "page": "2",
+      "line_num": "40",
+      "type": "text"
+    },
+    {
+      "text": "        } ",
+      "page": "2",
+      "line_num": "41",
+      "type": "text"
+    },
+    {
+      "text": "    } ",
+      "page": "2",
+      "line_num": "42",
+      "type": "text"
+    },
+    {
+      "text": "    return dp[mask][pos] = ans; ",
+      "page": "2",
+      "line_num": "43",
+      "type": "text"
+    },
+    {
+      "text": "} ",
+      "page": "2",
+      "line_num": "44",
+      "type": "text"
+    },
+    {
+      "text": "// Reconstructs the path  ",
+      "page": "2",
+      "line_num": "46",
+      "type": "text"
+    },
+    {
+      "text": "void findPath () { ",
+      "page": "2",
+      "line_num": "47",
+      "type": "text"
+    },
+    {
+      "text": "    int mask = 1, pos = 0; ",
+      "page": "2",
+      "line_num": "48",
+      "type": "text"
+    },
+    {
+      "text": "    vector<int> path = {1}; ",
+      "page": "2",
+      "line_num": "49",
+      "type": "text"
+    },
+    {
+      "text": "    while (mask != (1 << N) - 1) { ",
+      "page": "2",
+      "line_num": "51",
+      "type": "text"
+    },
+    {
+      "text": "        int bestCity  = -1, bestCost  = INF; ",
+      "page": "3",
+      "line_num": "0",
+      "type": "text"
+    },
+    {
+      "text": "        for (int city = 0; city < N; city++) { ",
+      "page": "3",
+      "line_num": "1",
+      "type": "text"
+    },
+    {
+      "text": "            if ((mask & (1 << city)) == 0) { ",
+      "page": "3",
+      "line_num": "2",
+      "type": "text"
+    },
+    {
+      "text": "                int newCost = dist[pos][city] + dp[mask | (1 << city)][city]; ",
+      "page": "3",
+      "line_num": "3",
+      "type": "text"
+    },
+    {
+      "text": "                if (newCost < bestCost ) { ",
+      "page": "3",
+      "line_num": "4",
+      "type": "text"
+    },
+    {
+      "text": "                    bestCost  = newCost; ",
+      "page": "3",
+      "line_num": "5",
+      "type": "text"
+    },
+    {
+      "text": "                    bestCity  = city; ",
+      "page": "3",
+      "line_num": "6",
+      "type": "text"
+    },
+    {
+      "text": "                } ",
+      "page": "3",
+      "line_num": "7",
+      "type": "text"
+    },
+    {
+      "text": "            } ",
+      "page": "3",
+      "line_num": "8",
+      "type": "text"
+    },
+    {
+      "text": "        } ",
+      "page": "3",
+      "line_num": "9",
+      "type": "text"
+    },
+    {
+      "text": "        mask |= (1 << bestCity ); ",
+      "page": "3",
+      "line_num": "10",
+      "type": "text"
+    },
+    {
+      "text": "        pos = bestCity ; ",
+      "page": "3",
+      "line_num": "11",
+      "type": "text"
+    },
+    {
+      "text": "        path.push_back (bestCity  + 1); ",
+      "page": "3",
+      "line_num": "12",
+      "type": "text"
+    },
+    {
+      "text": "    } ",
+      "page": "3",
+      "line_num": "13",
+      "type": "text"
+    },
+    {
+      "text": "    path.push_back (1); ",
+      "page": "3",
+      "line_num": "15",
+      "type": "text"
+    },
+    {
+      "text": "    cout << \"\\nOptimal Path: \"; ",
+      "page": "3",
+      "line_num": "16",
+      "type": "text"
+    },
+    {
+      "text": "    for (size_t i = 0; i < path.size(); i++) { ",
+      "page": "3",
+      "line_num": "17",
+      "type": "text"
+    },
+    {
+      "text": "        cout << path[i]; ",
+      "page": "3",
+      "line_num": "18",
+      "type": "text"
+    },
+    {
+      "text": "        if (i != path.size() - 1) cout << \" -> \"; ",
+      "page": "3",
+      "line_num": "19",
+      "type": "text"
+    },
+    {
+      "text": "    } ",
+      "page": "3",
+      "line_num": "20",
+      "type": "text"
+    },
+    {
+      "text": "    cout << endl; ",
+      "page": "3",
+      "line_num": "21",
+      "type": "text"
+    },
+    {
+      "text": "} ",
+      "page": "3",
+      "line_num": "22",
+      "type": "text"
+    },
+    {
+      "text": "int main() { ",
+      "page": "3",
+      "line_num": "24",
+      "type": "text"
+    },
+    {
+      "text": "    cout << \"Enter the number of cities: \"; ",
+      "page": "3",
+      "line_num": "25",
+      "type": "text"
+    },
+    {
+      "text": "    cin >> N; ",
+      "page": "3",
+      "line_num": "26",
+      "type": "text"
+    },
+    {
+      "text": "    dist.resize(N, vector<int>(N)); ",
+      "page": "3",
+      "line_num": "28",
+      "type": "text"
+    },
+    {
+      "text": "    dp.assign(1 << N, vector<int>(N, -1)); ",
+      "page": "3",
+      "line_num": "29",
+      "type": "text"
+    },
+    {
+      "text": "    cout << \"Enter the distance matrix (NxN): \\n\"; ",
+      "page": "3",
+      "line_num": "31",
+      "type": "text"
+    },
+    {
+      "text": "    for (int i = 0; i < N; i++) { ",
+      "page": "3",
+      "line_num": "32",
+      "type": "text"
+    },
+    {
+      "text": "        for (int j = 0; j < N; j++) { ",
+      "page": "3",
+      "line_num": "33",
+      "type": "text"
+    },
+    {
+      "text": "            cin >> dist[i][j]; ",
+      "page": "3",
+      "line_num": "34",
+      "type": "text"
+    },
+    {
+      "text": "        } ",
+      "page": "3",
+      "line_num": "35",
+      "type": "text"
+    },
+    {
+      "text": "    } ",
+      "page": "3",
+      "line_num": "36",
+      "type": "text"
+    },
+    {
+      "text": "    int minCost = tsp(1, 0); ",
+      "page": "3",
+      "line_num": "38",
+      "type": "text"
+    },
+    {
+      "text": "    cout << \"\\nMinimum Cost: \" << minCost << endl; ",
+      "page": "3",
+      "line_num": "39",
+      "type": "text"
+    },
+    {
+      "text": "    findPath (); ",
+      "page": "3",
+      "line_num": "40",
+      "type": "text"
+    },
+    {
+      "text": "    return 0; ",
+      "page": "3",
+      "line_num": "41",
+      "type": "text"
+    },
+    {
+      "text": "} ",
+      "page": "3",
+      "line_num": "42",
+      "type": "text"
+    },
+    {
+      "text": "OutPut : -  ",
+      "page": "4",
+      "line_num": "6",
+      "type": "text"
+    }
+  ],
+  "status": "success",
+  "_id": "67d9b8064a1bad83c5d51756"
+}

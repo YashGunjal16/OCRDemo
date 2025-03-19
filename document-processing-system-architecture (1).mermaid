@@ -1,0 +1,20 @@
+graph TD;
+    A["Input Documents<br/>(PDF, Word, Images)"] --> B["Document Processor"]
+    B --> C["Format Detection"]
+    C --> D["PDF Processor"]
+    C --> E["Word Processor"]
+    C --> F["Image Processor"]
+    F --> G["Image Preprocessing<br/>(OpenCV)"]
+    G --> H["OCR Engine<br/>(Tesseract)"]
+    D --> I["Text Extraction<br/>(PyPDF2)"]
+    E --> J["Text Extraction<br/>(python-docx)"]
+    H --> K["Text Structuring"]
+    I --> K
+    J --> K
+    K --> L["Sequence Preservation"]
+    L --> M["JSON Conversion"]
+    M --> N["MongoDB Storage"]
+    N --> O["Document Database"]
+    P["Plugin Framework"] --> B
+    P --> Q["Custom Processors"]
+    Q --> K
